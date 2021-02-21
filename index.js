@@ -5,16 +5,15 @@ const app = express()
 
 // middlewares
 app.use(cors())
-// app.use(express.json())
 
 // ROUTES
 app.get('/api/employees', (req, res) => {
-    const baseUrl = 'https://randomuser.me/api/?results=2'
+    const baseUrl = `https://randomuser.me/api/?results=500`
 
     fetch(baseUrl)
         .then(res => res.json())
         .then(data => res.send(data))
-        .catch(err => console.error(err))
+        .catch(err => console.log('ERROR', err.error))
 
 })
 
